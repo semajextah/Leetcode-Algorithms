@@ -1,0 +1,150 @@
+def from_roman_numeral(numeral):
+    value_map = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+    value = 0
+    last_digit_value = 0
+    
+    for roman_digit in numeral[::-1]:              # 1
+        digit_value = value_map[roman_digit]
+
+        if digit_value >= last_digit_value:        # 2 
+            value += digit_value         
+            last_digit_value = digit_value
+        else:                                      # 3
+            value -= digit_value
+
+    return value
+
+
+
+
+	
+
+def isPalindrome(self, x: int) -> bool:
+	return False if x < 0 else x == int(str(x)[::-1])
+
+
+
+
+
+def lengthOfLastWord(self, s):
+	listy = s.split()
+	length = len(listy)
+	return len(listy[length-1])
+
+
+
+def twoSum(self, nums, target):
+	X = 0
+    	XB = 0
+    	XX = len(nums)
+    	y = []
+   	while X <= XX:
+        	while XB <= XX:
+            		if nums[X] + nums[XB] == target:
+                		y.append(X)
+                		y.append(XB)
+                		return y
+            		else:
+                		break
+            		XB = XB + 1
+            
+        	X = X + 1
+
+
+
+
+###########MINE *NOT FULLY WORKING For "Submission" on leet code
+def longestCommonPrefix(strs):
+    x = len(strs)  
+    list2 = []
+    xx = 0
+    #iterates through words
+    while xx < x - 1:
+        a = 0
+        stringy = ''
+        #iterates through letters in word
+        while(a < len(strs[xx+1]) and a <= len(strs[xx])):
+
+            if strs[xx][a] == strs[xx+1][a]:
+                stringy = stringy + strs[xx][a]
+            else:
+                list2.append(stringy)
+                break
+
+
+            
+            a = a+1
+        xx = xx+1
+
+
+        
+    res = max(list2, key = len)
+    return res
+
+################
+def longestCommonPrefix(self, strs):
+    prefix=""
+    if len(strs)==0: return prefix
+    
+    for i in xrange(len(min(strs))):
+        c=strs[0][i]
+        if all(a[i]==c for a in strs):
+            prefix+=c
+        else:
+            break
+    return prefix
+        
+
+def strStr(haystack, needle):
+    if needle == '':
+        return 0
+    elif haystack.__contains__(needle):
+        y = 0
+        while y < len(haystack):
+            if haystack[y] == needle[0]:
+                return y
+    else:
+        return -1
+
+
+def strStr(haystack, needle):
+    var = needle
+    if var in haystack:
+        x = haystack.index(var)
+        return x
+    return -1
+
+
+#puts list into adds one
+def plusOne(addy):
+    string1="".join(map(str,addy))
+    inty = int(string1) +1
+    res = [int(x) for x in str(inty)]
+    return res
+
+
+
+
+
+#find insert position into list
+def searchInsert(self, nums, target):
+	if nums.__contains__(target):
+		return nums.index(target)
+	else:
+		a = 1
+		for x in nums:
+                	if x > target:
+                    		nums.insert(a-1, target)
+                    	return a - 1
+               		elif a == len(nums):
+                    		nums.insert(a + 1, target)
+                   	return a
+                a += 1
+                                
+
+
+
+
+
+
+
